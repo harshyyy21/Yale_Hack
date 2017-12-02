@@ -15,12 +15,22 @@ def add_fare(filename):
         return d
 
 
-"""def rel_fares(filename, budget, num_people, origin):
+def rel_fares(filename, budget, num_people, origin):
     d = {}
     with open (filename) as text:
+        line_number = 1
         for line in text:
-        line = line.strip()
-        line = line.split(",")
-        return line"""
+            line = line.strip()
+            line = line.split(",")
+            if line[0] == "BatchId":
+                continue
+            total_price = float(add_fare(filename)[line_number]) * float(num_people)
+            if total_price <= budget:
+                d[line_number] = line[1:5] + [add_fare(filename)[line_number]]
+                line_number += 1
+            else:
+                line_number += 1
+        return d
 
-print(add_fare("Deals.csv"))
+#print(add_fare("Deals.csv"))
+print(rel_fares("Deals.csv", 400, 1, "JFK"))
