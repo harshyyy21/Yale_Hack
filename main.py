@@ -1,76 +1,32 @@
-from datetime import datetime
-def add_fare(filename):
-    d = {}
-    with open (filename) as text:
-        line_number = 0
-        for line in text:
-            line = line.strip()
-            line = line.split(",")
-            if line[7].isalpha() or line[8].isalpha():
-                line_number += 1
-                pass
-            else:
-                total_fare = float(line[7]) + float(line[8])
-                total_fare = round(total_fare, 2)
-                d[line_number] = total_fare
-                line_number += 1
-        return d
+#!/usr/bin/env python
+#
+# Copyright 2007 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+import webapp2
 
-def split_dates(filename):
-    d = {}
-    with open (filename) as text:
-        line_number = 0
-        for line in text:
-            line = line.strip()
-            line = line.split(",")
-            if line[7].isalpha() or line[8].isalpha():
-                line_number += 1
-                pass
-            else:
-                sep_date_times = line[3].split(" ")
-                d[line_number] = sep_date_times
-                line_number += 1
-        return d
+class MainHandler(webapp2.RequestHandler):
+    def get(self):
+        #my_template = jinja_environment.get_template("template/home.html")
+        self.response.write('Hi Harsh')
 
-def make_datetime(filename):
-    d = {}
-    with open (filename) as text:
-        line_number = 0
-        for line in text:
-            line = line.strip()
-            line = line.split(",")
-            if line[7].isalpha() or line[8].isalpha():
-                line_number += 1
-                pass
-            else:
-                date = datetime.strptime(line[3], '%m/%d/%y %H:%M')
-                d[line_number] = date
-                line_number += 1
-        return d
+class CountHandler(webapp2.RequestHandler):
+    def get(self):
+        for i in range(1, 101):
+            self.response.write(i)
 
-def convert_user_datetime(user_date):
-    date = datetime.strptime(user_date, '%m/%d/%y')
-    return date
-
-def rel_fares(filename, budget, num_people, origin, date):
-    d = {}
-    with open (filename) as text:
-        line_number = 1
-        for line in text:
-            line = line.strip()
-            line = line.split(",")
-            if line[0] == "BatchId":
-                continue
-            total_price = float(add_fare(filename)[line_number]) * float(num_people)
-            new_date = convert_user_datetime(date)
-            if total_price <= budget and line[1] == origin and convert_user_datetime(split_dates(filename)[line_number][0]) >= new_date:
-                d[line_number] = line[1:3] + split_dates(filename)[line_number] + [line[4]] + [add_fare(filename)[line_number]]
-                line_number += 1
-            else:
-                line_number += 1
-        return d
-
-#print(add_fare("Deals.csv"))
-print(rel_fares("Deals.csv", 400, 1, "FLL", "12/6/17"))
-#print(make_datetime("Deals.csv"))
-#print split_dates("Deals.csv")
+app = webapp2.WSGIApplication([
+    ('/', MainHandler),
+    ('/count', CountHandler),
+], debug=True)
