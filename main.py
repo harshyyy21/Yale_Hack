@@ -3,21 +3,24 @@ def add_fare(filename):
     with open (filename) as text:
         line_number = 0
         for line in text:
-            if lists[7].isalpha() or lists[8].isalpha():
-				pass
-            line_number += 1
+            line = line.strip()
+            line = line.split(",")
+            if line[7].isalpha() or line[8].isalpha():
+                line_number += 1
+                pass
             else:
-                total_fare = int(lists[7]) + int(lists[8])
+                total_fare = float(line[7]) + float(line[8])
                 d[line_number] = total_fare
+                line_number += 1
         return d
 
 
-def rel_fares(filename, budget, num_people, origin):
+"""def rel_fares(filename, budget, num_people, origin):
     d = {}
     with open (filename) as text:
         for line in text:
-        line = line.strip();
+        line = line.strip()
         line = line.split(",")
-        return line
+        return line"""
 
-print(rel_fares("Deals.csv", 700, 4, "Chicago"))
+print(add_fare("Deals.csv"))
