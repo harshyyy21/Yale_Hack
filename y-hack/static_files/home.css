@@ -1,0 +1,81 @@
+.mdl-layout__header-row {
+  background-color: #010919;
+}
+.demo-card-event.mdl-card {
+  width: 456px;
+  height: 456px;
+  background: #fff;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+
+.demo-card-event > .mdl-card__actions {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.demo-card-event > .mdl-card__title {
+  align-items: flex-start;
+}
+.demo-card-event > .mdl-card__title > h4 {
+  margin-top: 0;
+}
+.demo-card-event > .mdl-card__actions {
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+.demo-card-event > .mdl-card__actions > .material-icons {
+  padding-right: 10px;
+}
+.demo-card-event > .mdl-card__title,
+.demo-card-event > .mdl-card__actions,
+.demo-card-event > .mdl-card__actions > .mdl-button {
+  color: black;
+}
+
+div.form button{
+   background-image: url(https://i.imgur.com/9BFXEhA.png);
+   background-repeat: no-repeat;
+   background-position: center;
+   color: transparent; /* Hide button text */
+   padding: 20px 70px;
+   background-color: #CEE9EB;
+}
+
+div.form {
+  font-family: serif;
+}
+
+#spiel {
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  font-size: 20px;
+  font-family: inherit;
+  color: white;
+}
+
+#change {
+  font-family: serif;
+}
+
+#header {
+  font-size: 30px;
+  font-family: serif;
+}
+
+#nav{
+  background-size: cover;
+  background: url(http://www.publicdomainpictures.net/pictures/150000/velka/sunset-sky-1455125487HWs.jpg);
+}
+
+#change {
+  color: white;
+  padding-top: 20px;
+  font-family: inherit;
+}
+
+#bar_color {
+  background-color: #03091b;
+}

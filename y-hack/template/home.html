@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Home Page</title>
+    <link rel="stylesheet" href="/resources/home.css" />
+    <!-- Material Design Lite -->
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  </head>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <a class="mdl-navigation__link" href="/"><h5>HAVANA TRAVELS</h5></a>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation. We hide it in small screens. -->
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <a class="mdl-navigation__link" href=""></a>
+            <a class="mdl-navigation__link" href=""></a>
+            <a class="mdl-navigation__link" href=""></a>
+            <a class="mdl-navigation__link" href=""></a>
+          </nav>
+        </div>
+      </header>
+    <center id = "bar_color">
+      <nav id = "nav">
+      <h2 id = "change"> WELCOME TO HAVANA TRAVELS! </h2>
+      <p id = "spiel">
+        Travel more at your own price with <i> Havana Travels</i>. <br>
+        Visit home or friends. Plan your dream spring break trip. <br>
+        Just input your departure airport, budget, count up everyone that's coming with you, and set the day <br>you're leaving after. We'll do the  searching for you.<br>
+
+      </p>
+      <div class="demo-card-event mdl-card mdl-shadow--2dp"> <br>
+        <div class="mdl-card__title mdl-card--expand">
+          <h6>
+            <p> <i id = "header"> Change the way you travel </i> </p>
+            <br>
+            <div class="form">
+              <form action="/results" method = "post">
+                  <br>
+                  <label for="budg">Budget (in USD, no dollar sign required)</label>
+                  <input type="text" id="budg" name="budget" placeholder="Ex: 400">
+                  <br>
+                  <br>
+                  <label for="num_people"> Number of People </label>
+                  <input type="text" id="num_people" name="number_of_people" placeholder="Ex: 2">
+                  <br>
+                  <br>
+                  <label for="origin">Origin (please enter airport code)</label>
+                  <input type="text" id="origin" name="org" placeholder="Ex: JFK">
+                  <br>
+                  <br>
+                  <label for="dep_date">Leave After (MM/DD/YY)</label>
+                  <input type="text" id="dep_date" name="leave_after" placeholder="Ex: 12/6/17">
+                  <br>
+                  <br>
+                  <button onclick = 'sorter()'> </button>
+              </form>
+            </div>
+
+          </h6>
+        </div>
+      </div>
+      </nav>
+    </center>
+      <!-- <body class = "test">
+        Yo world
+      </body> -->
+    </div></>
+</html>
